@@ -1,0 +1,4 @@
+interface:
+  display_name: "日本語学習サイト制作"
+  short_description: "公式資料から、要点・図解・短いブロックで学べる日本語サイトを制作"
+  default_prompt: "$build-learning-site-ja を使い、指定テーマの一次資料を調べて、入門から応用までブロック単位で理解できる日本語学習サイトを作ってください。"

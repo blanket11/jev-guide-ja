@@ -1,0 +1,32 @@
+{
+  "topic": "REPLACE_WITH_TOPIC",
+  "scope": "REPLACE_WITH_SCOPE",
+  "sources": [
+    {
+      "id": "source-001",
+      "title": "REPLACE_WITH_TITLE",
+      "url": "REPLACE_WITH_CANONICAL_URL",
+      "section": "REPLACE_WITH_SECTION",
+      "checked_at": null,
+      "version": null,
+      "supported_claims": [],
+      "unverified_points": []
+    }
+  ],
+  "chapters": [
+    {
+      "slug": "REPLACE_WITH_SLUG",
+      "goal": "REPLACE_WITH_GOAL",
+      "prerequisites": [],
+      "source_ids": [],
+      "editorial_assumptions": [],
+      "verification": {
+        "documentation_review": "not_run",
+        "static_checks": "not_run",
+        "mock": "not_run",
+        "real_execution": "not_run",
+        "published_page": "not_run"
+      }
+    }
+  ]
+}
