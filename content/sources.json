@@ -1,0 +1,167 @@
+{
+  "intro": {
+    "title": "Introduction",
+    "url": "https://docs.typesafe.ai/introduction",
+    "checked": "2026-09-21"
+  },
+  "quickstart": {
+    "title": "Quick start",
+    "url": "https://docs.typesafe.ai/introduction/quickstart",
+    "checked": "2026-09-21"
+  },
+  "system": {
+    "title": "System One",
+    "url": "https://docs.typesafe.ai/concepts/system-one",
+    "checked": "2026-09-21"
+  },
+  "state": {
+    "title": "State",
+    "url": "https://docs.typesafe.ai/concepts/state",
+    "checked": "2026-09-21"
+  },
+  "primitives": {
+    "title": "Primitives",
+    "url": "https://docs.typesafe.ai/primitives",
+    "checked": "2026-09-21"
+  },
+  "choice": {
+    "title": "Choice",
+    "url": "https://docs.typesafe.ai/primitives/choice",
+    "checked": "2026-09-21"
+  },
+  "score": {
+    "title": "Score",
+    "url": "https://docs.typesafe.ai/primitives/score",
+    "checked": "2026-09-21"
+  },
+  "noul": {
+    "title": "Noul",
+    "url": "https://docs.typesafe.ai/primitives/noul",
+    "checked": "2026-09-21"
+  },
+  "advanced": {
+    "title": "Advanced: structure",
+    "url": "https://docs.typesafe.ai/primitives/advanced",
+    "checked": "2026-09-21"
+  },
+  "confidence": {
+    "title": "Confidence",
+    "url": "https://docs.typesafe.ai/confidence",
+    "checked": "2026-09-21"
+  },
+  "build": {
+    "title": "How to build with TypeSafe",
+    "url": "https://docs.typesafe.ai/concepts/how-to-build-with-system-one",
+    "checked": "2026-09-21"
+  },
+  "patterns": {
+    "title": "Patterns",
+    "url": "https://docs.typesafe.ai/patterns",
+    "checked": "2026-09-21"
+  },
+  "fanout": {
+    "title": "Speculative fan-out",
+    "url": "https://docs.typesafe.ai/patterns/fan-out",
+    "checked": "2026-09-21"
+  },
+  "routing": {
+    "title": "Confidence-gated routing",
+    "url": "https://docs.typesafe.ai/patterns/confidence-routing",
+    "checked": "2026-09-21"
+  },
+  "composite": {
+    "title": "Composite scoring",
+    "url": "https://docs.typesafe.ai/patterns/composite-scoring",
+    "checked": "2026-09-21"
+  },
+  "intent": {
+    "title": "Intent routing",
+    "url": "https://docs.typesafe.ai/patterns/intent-routing",
+    "checked": "2026-09-21"
+  },
+  "sdk": {
+    "title": "JavaScript SDK",
+    "url": "https://docs.typesafe.ai/sdk/javascript",
+    "checked": "2026-09-21"
+  },
+  "client": {
+    "title": "TypeSafeClient",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/classes/TypeSafeClient",
+    "checked": "2026-09-21"
+  },
+  "config": {
+    "title": "TypeSafeClientConfig",
+    "url": "https://docs.typesafe.ai/sdk/javascript/api/interfaces/TypeSafeClientConfig",
+    "checked": "2026-09-21"
+  },
+  "api": {
+    "title": "API reference",
+    "url": "https://docs.typesafe.ai/api",
+    "checked": "2026-09-21"
+  },
+  "models": {
+    "title": "Models",
+    "url": "https://docs.typesafe.ai/models",
+    "checked": "2026-09-21"
+  },
+  "jaggedness": {
+    "title": "Jev 1.13 jaggedness",
+    "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13",
+    "checked": "2026-09-21"
+  },
+  "agent": {
+    "title": "Agent skill",
+    "url": "https://docs.typesafe.ai/agent-skill",
+    "checked": "2026-09-21"
+  },
+  "legal": {
+    "title": "Legal",
+    "url": "https://docs.typesafe.ai/legal",
+    "checked": "2026-09-21"
+  },
+  "rerank": {
+    "title": "Re-ranking cookbook",
+    "url": "https://docs.typesafe.ai/cookbooks/rerank_typesafe",
+    "checked": "2026-09-21"
+  },
+  "search": {
+    "title": "Line-by-line search",
+    "url": "https://docs.typesafe.ai/cookbooks/semantic_find",
+    "checked": "2026-09-21"
+  },
+  "functions": {
+    "title": "Function calling cookbook",
+    "url": "https://docs.typesafe.ai/cookbooks/function_calling",
+    "checked": "2026-09-21"
+  },
+  "consistency": {
+    "title": "Self-consistency: choices",
+    "url": "https://docs.typesafe.ai/cookbooks/consistency_choice_cookbook",
+    "checked": "2026-09-21"
+  },
+  "consistency-noul": {
+    "title": "Self-consistency: nouls",
+    "url": "https://docs.typesafe.ai/cookbooks/consistency_noul_cookbook",
+    "checked": "2026-09-21"
+  },
+  "parallel": {
+    "title": "Parallel questions cookbook",
+    "url": "https://docs.typesafe.ai/cookbooks/parallel_questions",
+    "checked": "2026-09-21"
+  },
+  "pages": {
+    "title": "What is GitHub Pages?",
+    "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+    "checked": "2026-09-21"
+  },
+  "workflow": {
+    "title": "GitHub Pages custom workflows",
+    "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages",
+    "checked": "2026-09-21"
+  },
+  "index": {
+    "title": "公式ドキュメント索引",
+    "url": "https://docs.typesafe.ai/llms.txt",
+    "checked": "2026-09-21"
+  }
+}

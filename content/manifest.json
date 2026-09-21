@@ -1,0 +1,431 @@
+[
+  {
+    "slug": "start",
+    "title": "このガイドの読み方",
+    "group": "入門",
+    "summary": "前提知識と学習の順番を確認して、最初の一歩を決めます。",
+    "goal": "自分がどこから読み始めるかを決められる。",
+    "sources": [
+      "intro",
+      "quickstart",
+      "sdk"
+    ],
+    "keywords": "初心者 学習順序 日本語 はじめに",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "what-is-jev",
+    "title": "Jevとは：文章を書くAIではなく、判断を返すAI",
+    "group": "入門",
+    "summary": "生成AIとの役割の違いと、コードに組み込む考え方をつかみます。",
+    "goal": "Jevに任せる処理と、コードに残す処理を区別できる。",
+    "sources": [
+      "intro",
+      "system",
+      "build",
+      "models"
+    ],
+    "keywords": "System One システムワン AI 違い 分類 意思決定",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "playground",
+    "title": "Playgroundで最初の判断を試す",
+    "group": "入門",
+    "summary": "APIキーをコードに書く前に、公式の画面で入力と結果を観察します。",
+    "goal": "同じ質問のまま文章を変え、返答の違いを確認できる。",
+    "sources": [
+      "quickstart",
+      "noul",
+      "choice"
+    ],
+    "keywords": "プレイグラウンド 使い方 登録 ログイン 初回",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "request-builder",
+    "title": "触って理解する：リクエスト作成デモ",
+    "group": "入門",
+    "summary": "3種類の質問を切り替え、APIに送るJSONを組み立てます。",
+    "goal": "state・model・questionsの位置と役割が分かる。",
+    "sources": [
+      "api",
+      "primitives"
+    ],
+    "keywords": "JSON デモ ハンズオン API リクエスト state questions model",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "state",
+    "title": "State：判断に必要な材料を渡す",
+    "group": "基本概念",
+    "summary": "文章・オブジェクト・配列を使い分け、余計な情報を減らします。",
+    "goal": "質問に必要な情報だけを、名前付きのデータに整理できる。",
+    "sources": [
+      "state",
+      "build",
+      "jaggedness"
+    ],
+    "keywords": "ステート JSON オブジェクト 配列 コンテキスト 入力",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "question-types",
+    "title": "Choice・Score・Noulをどう使い分けるか",
+    "group": "基本概念",
+    "summary": "「1つ選ぶ」「程度を測る」「条件に当てはまる」を区別します。",
+    "goal": "聞きたいことに合う質問の型を選べる。",
+    "sources": [
+      "primitives",
+      "choice",
+      "score",
+      "noul"
+    ],
+    "keywords": "プリミティブ choice score noul 型 比較 選び方",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "choice",
+    "title": "Choice：選択肢から1つを選ぶ",
+    "group": "基本概念",
+    "summary": "分類基準を設計し、選ばれた値と確率分布を読みます。",
+    "goal": "カテゴリの境界と「不明」の扱いを説明できる。",
+    "sources": [
+      "choice",
+      "api",
+      "advanced"
+    ],
+    "keywords": "分類 カテゴリ 選択肢 probabilities other unclear",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "score",
+    "title": "Score：段階のある基準で評価する",
+    "group": "基本概念",
+    "summary": "配列の順番と、確率で重み付けされたscoreの意味を理解します。",
+    "goal": "scoreの小数が何を表すか、数値例で説明できる。",
+    "sources": [
+      "score",
+      "api",
+      "jaggedness"
+    ],
+    "keywords": "採点 スコア ルーブリック 平均 期待値 legend 確率",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "noul",
+    "title": "Noul：はいの確率を受け取る",
+    "group": "基本概念",
+    "summary": "真偽値に変える前に、不確かな範囲の扱いを決めます。",
+    "goal": "noulの値と「程度」の違いを理解し、3つの経路に分岐できる。",
+    "sources": [
+      "noul",
+      "confidence",
+      "consistency-noul"
+    ],
+    "keywords": "ノウル ヌール noul boolean 真偽値 しきい値 threshold",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "confidence",
+    "title": "確率とconfidenceを読み違えない",
+    "group": "基本概念",
+    "summary": "予測の数値と実際の正解率を切り分け、安全な分岐に使います。",
+    "goal": "confidenceを正解保証とみなさず、用途ごとに検証できる。",
+    "sources": [
+      "confidence",
+      "system",
+      "routing"
+    ],
+    "keywords": "確信度 信頼度 confidence 較正 calibration 正解率",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "question-design",
+    "title": "質問の設計：1問で1つのことを聞く",
+    "group": "基本概念",
+    "summary": "曖昧な依頼を分解し、判断基準を具体的にします。",
+    "goal": "期待と違う結果を、質問・材料・基準に分けて見直せる。",
+    "sources": [
+      "build",
+      "advanced",
+      "jaggedness"
+    ],
+    "keywords": "プロンプト instructions criteria 質問設計 境界例",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "javascript-sdk",
+    "title": "JavaScript / TypeScriptから呼び出す",
+    "group": "実装",
+    "summary": "公式SDKの導入と、質問から結果までの最小の流れを確認します。",
+    "goal": "環境変数にキーを置き、サーバー側でSDKを呼ぶ構造が分かる。",
+    "sources": [
+      "sdk",
+      "config",
+      "client",
+      "models"
+    ],
+    "keywords": "SDK npm typescript javascript nodejs TypeSafeClient systemOne",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "http-api",
+    "title": "HTTP API：SDKなしで仕組みを確認する",
+    "group": "実装",
+    "summary": "URL・認証・JSONの関係を理解し、付属の実習を動かします。",
+    "goal": "API呼び出しの構造と、モック実行と実API実行の違いが分かる。",
+    "sources": [
+      "api",
+      "quickstart"
+    ],
+    "keywords": "HTTP REST curl fetch Bearer API認証 モック",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "web-integration",
+    "title": "Webサービスに組み込む場所",
+    "group": "実装",
+    "summary": "ブラウザーとサーバーを分け、認証・判断・保存の責務を整理します。",
+    "goal": "APIキーを公開せず、判断だけをJevに任せる構成を描ける。",
+    "sources": [
+      "config",
+      "build",
+      "pages"
+    ],
+    "keywords": "Next.js サーバー クライアント バックエンド APIキー 環境変数 Pages",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "errors",
+    "title": "エラーと再試行：失敗を普通の経路にする",
+    "group": "実装",
+    "summary": "認証エラーと一時的な混雑を区別し、無限の再送を防ぎます。",
+    "goal": "再試行すべき失敗と、設定を直すべき失敗を分けられる。",
+    "sources": [
+      "api",
+      "models",
+      "sdk",
+      "config"
+    ],
+    "keywords": "429 529 401 422 リトライ バックオフ タイムアウト Retry-After",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "parallel",
+    "title": "複数の質問をまとめる：並列評価",
+    "group": "応用",
+    "summary": "同じStateへの独立した質問を、1回のリクエストにまとめます。",
+    "goal": "まとめられる質問と、前の答えが必要な質問を区別できる。",
+    "sources": [
+      "fanout",
+      "parallel",
+      "primitives",
+      "models"
+    ],
+    "keywords": "並列 fan-out バッチ 複数質問 依存 コスト",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "routing",
+    "title": "判断と確信度で、処理を振り分ける",
+    "group": "応用",
+    "summary": "自動処理・確認・別の仕組みへの切り替えを設計します。",
+    "goal": "ラベルを選ぶことと、その後の操作を許可することを分離できる。",
+    "sources": [
+      "routing",
+      "intent",
+      "build"
+    ],
+    "keywords": "ルーティング confidence gate 意図分類 fallback フォールバック",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "composite",
+    "title": "複数のスコアを、コードで組み合わせる",
+    "group": "応用",
+    "summary": "1つの大きな判断を分解し、重み付けの根拠を明確にします。",
+    "goal": "各指標の意味を保ちながら、並べ替え用の合成値を作れる。",
+    "sources": [
+      "composite",
+      "score",
+      "build"
+    ],
+    "keywords": "重み付き 合成スコア ランキング 正規化 recommendation",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "reranking",
+    "title": "検索結果の並べ替えと、候補の評価",
+    "group": "応用",
+    "summary": "検索と再ランキングを分け、Jevに任せる範囲を絞ります。",
+    "goal": "候補を集める処理と、意味で評価する処理を区別できる。",
+    "sources": [
+      "rerank",
+      "search",
+      "fanout"
+    ],
+    "keywords": "検索 RAG FAQ 再ランキング rerank リランキング relevance",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "function-calling",
+    "title": "自然文から、決められた処理の候補を選ぶ",
+    "group": "応用",
+    "summary": "自由な命令実行ではなく、許可済みの処理へ対応付けます。",
+    "goal": "関数の候補選択と、実行・権限確認を分けて実装できる。",
+    "sources": [
+      "functions",
+      "intent",
+      "jaggedness"
+    ],
+    "keywords": "function calling 関数呼び出し ツール選択 allowlist 認可",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "evaluation",
+    "title": "評価と回帰テスト：本当に役立つか確かめる",
+    "group": "運用・品質",
+    "summary": "実際の日本語データで、正解率と自動化できた割合を測ります。",
+    "goal": "質問やモデルを変える前後で、同じ基準の比較ができる。",
+    "sources": [
+      "confidence",
+      "consistency",
+      "consistency-noul",
+      "models"
+    ],
+    "keywords": "評価 テスト 回帰 日本語精度 正解率 カバレッジ coverage テストデータ",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "models-and-cost",
+    "title": "モデル・料金・入力上限を確認する",
+    "group": "運用・品質",
+    "summary": "変わる情報の確認場所と、トークンから費用を考える方法を学びます。",
+    "goal": "モデルの固定と別名の違い、費用の概算方法が分かる。",
+    "sources": [
+      "models",
+      "api",
+      "parallel"
+    ],
+    "keywords": "料金 価格 コスト トークン モデル jev-latest 1.13 rate limits 64k 32k",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "security",
+    "title": "APIキー・データ・操作を守る",
+    "group": "運用・品質",
+    "summary": "秘密情報をブラウザーに出さず、外部送信と権限を分けて考えます。",
+    "goal": "学習用の実装を公開するときの基本的な危険を避けられる。",
+    "sources": [
+      "config",
+      "legal",
+      "jaggedness",
+      "build"
+    ],
+    "keywords": "セキュリティ APIキー 個人情報 データ保持 プライバシー Secrets",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "limitations",
+    "title": "苦手なことと、見落としやすい落とし穴",
+    "group": "運用・品質",
+    "summary": "日本語・数値・長い入力・敵対的な文章への限界を確認します。",
+    "goal": "モデルに任せない判断と、評価が必要な場面が分かる。",
+    "sources": [
+      "models",
+      "jaggedness",
+      "noul",
+      "score"
+    ],
+    "keywords": "制約 限界 日本語 苦手 数値 日付 プロンプトインジェクション",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "product-recipes",
+    "title": "サービスへの応用を考える：3つの設計例",
+    "group": "実践・資料",
+    "summary": "予定共有・音楽・レビューを題材に、小さく導入する方法を考えます。",
+    "goal": "Jevを入れる理由と、入れなくてよい部分を説明できる。",
+    "sources": [
+      "build",
+      "composite",
+      "rerank",
+      "models"
+    ],
+    "keywords": "Kokoiku HAZUMI yuuadb 活用 導入 音楽 レビュー 推し活",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "agent-skill",
+    "title": "CodexなどのAIコーディング支援と使う",
+    "group": "実践・資料",
+    "summary": "公式スキルと、実装を依頼するときに明示する条件を確認します。",
+    "goal": "公式仕様を参照させつつ、検証と公開範囲を自分で管理できる。",
+    "sources": [
+      "agent",
+      "build"
+    ],
+    "keywords": "Codex Cursor Claude Code スキル SKILL.md skills インストール",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "glossary",
+    "title": "用語集：つまずきやすい言葉を日本語で",
+    "group": "実践・資料",
+    "summary": "State・確率・SDKなど、学習中に戻れる用語の整理です。",
+    "goal": "略語を見たときに、役割と参照先を確認できる。",
+    "sources": [
+      "primitives",
+      "state",
+      "confidence",
+      "sdk",
+      "api",
+      "system"
+    ],
+    "keywords": "用語集 glossary 意味 初心者 単語",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "publishing",
+    "title": "このサイトをGitHub Pagesで公開する",
+    "group": "実践・資料",
+    "summary": "ローカルで確認し、新しいリポジトリから公開する手順です。",
+    "goal": "サイトの公開とJevのAPI利用を切り離して管理できる。",
+    "sources": [
+      "pages",
+      "workflow"
+    ],
+    "keywords": "公開 GitHub Pages デプロイ Node ワークフロー Actions README",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "about",
+    "title": "非公式ガイドの編集方針と検証状態",
+    "group": "実践・資料",
+    "summary": "公式との関係、出典の扱い、確認できていないことを明示します。",
+    "goal": "この教材をどこまで信頼し、どこを原典で確かめるか判断できる。",
+    "sources": [
+      "index",
+      "intro",
+      "models",
+      "api"
+    ],
+    "keywords": "非公式 免責 編集方針 著作権 確認日 検証状況",
+    "checked": "2026-09-21"
+  },
+  {
+    "slug": "sources",
+    "title": "出典一覧と、この版の確認範囲",
+    "group": "実践・資料",
+    "summary": "参照した一次情報と、網羅していない範囲を確認できます。",
+    "goal": "必要な公式資料を自分で探し直せる。",
+    "sources": [
+      "index",
+      "models",
+      "api"
+    ],
+    "keywords": "出典 参考文献 sources 公式 ドキュメント 範囲",
+    "checked": "2026-09-21"
+  }
+]

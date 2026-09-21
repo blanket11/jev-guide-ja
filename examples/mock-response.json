@@ -1,0 +1,18 @@
+{
+  "model": "mock-teaching-fixture",
+  "answers": {
+    "category": {
+      "type": "choice",
+      "choice": "bug",
+      "probabilities": {
+        "bug": 1,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "unclear": 0
+      },
+      "confidence": 1
+    }
+  },
+  "usage": { "input_tokens": 0, "output_tokens": 0 }
+}

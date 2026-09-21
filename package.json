@@ -1,0 +1,16 @@
+{
+  "name": "jev-guide-ja",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Jevの入門から応用まで学べる非公式日本語ガイド",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs",
+    "test": "node --test",
+    "example:mock": "node examples/triage.mjs --mock",
+    "example:live": "node --env-file=.env examples/triage.mjs"
+  }
+}
