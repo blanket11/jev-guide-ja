@@ -1,3 +1,5 @@
+import { renderLearningBlock } from './reading.mjs';
+
 /** Trusted, repository-authored Markdown only. This is not a user-input sanitizer. */
 export function escapeHtml(value) {
   return String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
@@ -13,10 +15,12 @@ export function inline(text) {
   value = escapeHtml(value).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   return value.replace(/\u0000(\d+)\u0000/g, (_, i) => stash[Number(i)]);
 }
-export function renderMarkdown(markdown, { demo = () => '', headings = [] } = {}) {
+export function renderMarkdown(markdown, { demo = () => '', headings = [], blockSections = false } = {}) {
   const lines = markdown.replaceAll('\r\n', '\n').split('\n');
   const output = [];
   let i = 0;
+  let sectionOpen = false;
+  let sectionCount = 0;
   while (i < lines.length) {
     const line = lines[i];
     if (!line.trim()) { i++; continue; }
@@ -30,6 +34,15 @@ export function renderMarkdown(markdown, { demo = () => '', headings = [] } = {}
       continue;
     }
     if (line.startsWith(':::demo ')) { output.push(demo(line.slice(8).trim())); i++; continue; }
+    const learning = line.match(/^:::(brief|flow|cards)\s+(.+)$/);
+    if (learning) {
+      const body = []; i++;
+      while (i < lines.length && lines[i].trim() !== ':::') body.push(lines[i++]);
+      if (i === lines.length) throw new Error('Unclosed learning block');
+      i++;
+      output.push(renderLearningBlock(learning[1], learning[2], body.join('\n'), { inline, escapeHtml }));
+      continue;
+    }
     const callout = line.match(/^:::(note|tip|warning|answer)\s*(.*)$/);
     if (callout) {
       const body = []; i++;
@@ -47,6 +60,11 @@ export function renderMarkdown(markdown, { demo = () => '', headings = [] } = {}
     if (heading) {
       const level = heading[1].length; const id = `section-${headings.length + 1}`;
       headings.push({ level, id, title: heading[2].replaceAll('**', '').replaceAll('`', '') });
+      if (blockSections && level === 2) {
+        if (sectionOpen) output.push('</section>');
+        sectionOpen = true; sectionCount++;
+        output.push(`<section class="reading-block" aria-labelledby="${id}"><span class="block-number" aria-hidden="true">${String(sectionCount).padStart(2, '0')}</span>`);
+      }
       output.push(`<h${level} id="${id}">${inline(heading[2])}<a class="heading-anchor" href="#${id}" aria-label="この見出しへのリンク">#</a></h${level}>`); i++; continue;
     }
     if (line.startsWith('|') && i + 1 < lines.length && /^\|[\s:|-]+\|$/.test(lines[i + 1])) {
@@ -64,5 +82,6 @@ export function renderMarkdown(markdown, { demo = () => '', headings = [] } = {}
     while (i < lines.length && lines[i].trim() && !/^(#{2,4}\s|```|:::|\||[-*] )/.test(lines[i])) paragraph.push(lines[i++]);
     output.push(`<p>${inline(paragraph.join('\n'))}</p>`);
   }
+  if (sectionOpen) output.push('</section>');
   return output.join('\n');
 }

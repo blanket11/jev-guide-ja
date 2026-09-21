@@ -1,7 +1,24 @@
-## ブラウザーから直接呼ばない
-公式SDKの`dangerouslyAllowBrowser`は、既定で無効です。有効にするとページの利用者にAPIキーが露出する、と公式に明記されています。このガイドでは有効化しません。[公式：TypeSafeClientConfig](https://docs.typesafe.ai/sdk/javascript/api/interfaces/TypeSafeClientConfig)
+:::brief Jevとの通信は、サーバー側に置く
+- **ブラウザー：** 入力と表示を担当し、APIキーを持ちません。
+- **サーバー：** 認証・認可・入力確認をしてからJevを呼びます。
+- **初期導入：** AIが失敗しても、問い合わせの保存などは止めない設計にします。
+:::
 
-基本の構成は「ブラウザー → 自分のサーバー → Jev → 自分のサーバー → ブラウザー」です。Jevへのキーはサーバーが保持します。フロント側の環境変数に名前を付けるだけでは、秘密になるわけではありません。
+:::flow 送信する経路と、キーの置き場所
+ブラウザー | 自分のAPIへ入力を送る
+自分のサーバー | 権限と入力を確認。キーを保持
+Jev | 必要な文章について判断を返す
+! 返答はサーバーで検証し、必要な値だけをブラウザーへ戻します。
+:::
+
+## ブラウザーから直接呼ばない
+- 公式SDKの`dangerouslyAllowBrowser`は、既定で無効です。
+- 有効にするとページの利用者にAPIキーが露出する、と公式に明記されています。
+- このガイドでは有効化しません。 [公式：TypeSafeClientConfig](https://docs.typesafe.ai/sdk/javascript/api/interfaces/TypeSafeClientConfig)
+
+- 基本の構成は「ブラウザー → 自分のサーバー → Jev → 自分のサーバー → ブラウザー」です。
+- Jevへのキーはサーバーが保持します。
+- フロント側の環境変数に名前を付けるだけでは、秘密になるわけではありません。
 
 ## サーバーで先に行う処理
 以下は独自の設計例です。まずログイン状態を確認し、そのユーザーが対象のデータを扱えるかを認可します。次に入力の形式とサイズを検証します。Jevに渡すのは、その後に用意した最小限の材料です。
@@ -21,15 +38,19 @@ Jev
   候補ラベルと確認状態を表示する
 ```
 
-モデルの判断が「この操作でよい」となっても、対象データの所有権や操作権限を置き換えてはいけません。コードが制御を持つ考え方は公式の設計指針にも沿っています。[公式：How to build with TypeSafe](https://docs.typesafe.ai/concepts/how-to-build-with-system-one)
+- モデルの判断が「この操作でよい」となっても、対象データの所有権や操作権限を置き換えてはいけません。
+- コードが制御を持つ考え方は公式の設計指針にも沿っています。 [公式：How to build with TypeSafe](https://docs.typesafe.ai/concepts/how-to-build-with-system-one)
 
 ## 最初は保存後の補助処理にする
 問い合わせを保存した後、非同期の処理でラベル候補を付けると、Jevが失敗しても問い合わせ本体を失わずに済みます。これは、本ガイドの初期導入案です。必ず非同期にすべきというAPIの制約ではありません。
 
-この例では、AIの完了を待つためにユーザーの投稿を消したり、同じ投稿を何度も作成したりしないようにします。AI結果には、処理状態、使用したモデル、質問定義の版、処理時刻を別に保存すると、後から調べやすくなります。
+- この例では、AIの完了を待つためにユーザーの投稿を消したり、同じ投稿を何度も作成したりしないようにします。
+- AI結果には、処理状態、使用したモデル、質問定義の版、処理時刻を別に保存すると、後から調べやすくなります。
 
 ## GitHub Pagesとの関係
-GitHub Pagesは静的なHTML・CSS・JavaScriptなどを公開する仕組みです。この教材サイトには、Jevのキーを保持するサーバーはありません。実APIを使う公開デモを追加するなら、別のサーバー側機能と、認証・利用制限の設計が必要になります。[GitHub公式：What is GitHub Pages?](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
+- GitHub Pagesは静的なHTML・CSS・JavaScriptなどを公開する仕組みです。
+- この教材サイトには、Jevのキーを保持するサーバーはありません。
+- 実APIを使う公開デモを追加するなら、別のサーバー側機能と、認証・利用制限の設計が必要になります。 [GitHub公式：What is GitHub Pages?](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
 
 :::answer 確認問題：GitHub ActionsのSecretsにキーを入れ、ビルド時にJavaScriptへ埋め込めば安全ですか？
 安全ではありません。Secretsの保管場所が非公開でも、生成したJavaScriptにキーを埋め込むと、公開されたファイルから読めます。このサイトのビルドはキーを一切使用しません。

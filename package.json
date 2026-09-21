@@ -1,6 +1,6 @@
 {
   "name": "jev-guide-ja",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Jevの入門から応用まで学べる非公式日本語ガイド",
   "type": "module",
