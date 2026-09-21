@@ -1,5 +1,22 @@
 # 検証記録 — 2026-09-21
 
+## リポジトリ登録後の追加検証
+
+2026年9月21日10時36分（日本時間）に、`blanket11/jev-guide-ja`の`main`へサイト一式を登録しました。サイト・教材・実習・テスト・公開ワークフローの58ファイルで、転送後のGit tree SHAはローカルのソース一式と一致しています。
+
+登録コミット：`f5ab4db942aac44f93acc64029169e5c18f58496`  
+検証したtree：`0c6bb3ea6ffd1dd6c2a09e0bf87a32aa7c2ece8d`
+
+ローカルの`npm test`は34件成功です。GitHub Actionsでも`npm test`、`npm run build`、`actions/upload-pages-artifact`が成功しました。実APIへの通信や公式SDKの実行はしていません。
+
+実行結果：https://github.com/blanket11/jev-guide-ja/actions/runs/35551431784
+
+デプロイは`actions/configure-pages`で停止しました。ログは「Get Pages site failed」「Not Found」と、Pagesを有効にしてGitHub Actionsでビルドする設定を確認するよう示しています。公開完了ではありません。
+
+初回の残りの操作は、 https://github.com/blanket11/jev-guide-ja/settings/pages のSourceをGitHub Actionsへ変更し、 https://github.com/blanket11/jev-guide-ja/actions/workflows/pages.yml から`main`を選んでRun workflowを実行することです。ワークフローは登録済みなので、別の公開テンプレートの作成は不要です。
+
+以下は、アップロード前の初版作成時の検証記録です。「未実行」「未公開」は、その初版作成時点の状態を表します。
+
 ## 成果物の状態
 
 初版0.1.0。学習用記事30章、ホーム1ページ、原典の参照先33件です。本文Markdownの合計は42,068文字（コード・見出し・リンク表記を含む）です。GitHubリポジトリ作成・push・GitHub Pages公開は行っていません。
